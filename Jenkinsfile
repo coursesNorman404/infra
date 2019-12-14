@@ -7,9 +7,10 @@ pipeline {
     timeout(time: 3, unit: 'MINUTES')
   }
   stages {
-    stage('Example') {
+    stage('Build Packer') {
       steps {
-        echo "Hello ${params.ARTIFACT_ID}"
+        sh 'chmod +x ./bash/prod.sh'
+        sh './bash/prod.sh'
       }
     }
   }
