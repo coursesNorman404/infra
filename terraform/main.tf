@@ -13,7 +13,7 @@ resource "digitalocean_droplet" "tecWeb" {
     create_before_destroy = true
   }
   provisioner "local-exec" {
-    command = "sleep 160 && curl ${self.ipv4_address}:300/ "
+    command = "sleep 160 && curl ${self.ipv4_address}:3000/add/1/1 "
   }
   tags = ["${digitalocean_tag.tecWeb.id}"]
 }
