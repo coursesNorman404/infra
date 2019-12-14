@@ -2,8 +2,8 @@
 # unzip /tmp/terraform.zip
 export TF_VAR_image_id=$(curl -X GET -H 'Content-Type: application/json' -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?private=true" | jq ."images[] | select(.name == \"tec-prod-norman404/app:17\") | .id")
 echo $TF_VAR_image_id
-cd terraform
-terraform init
-terraform apply
-cd ..
+# cd terraform
+# terraform init
+# terraform apply
+# cd ..
 
