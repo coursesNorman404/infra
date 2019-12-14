@@ -4,6 +4,6 @@ export TF_VAR_image_id=$(curl -X GET -H 'Content-Type: application/json' -H "Aut
 echo $TF_VAR_image_id
 cd terraform
 terraform init
-terraform apply
+terraform apply -input=false -auto-approve
 # cd ..
 
