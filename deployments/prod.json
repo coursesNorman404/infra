@@ -1,0 +1,26 @@
+{
+  "variables": {
+    "build_number": "{{env `ARTIFACT_ID`}}"
+  },
+  "builders": [
+    {
+      "type": "digitalocean",
+      "api_token": "51f939fa5017a4beb69c6bff1d7626cb31f57e28641729eb2b1ea766ab7d894d",
+      "image": "coreos-stable",
+      "region": "SFO2",
+      "size": "512mb",
+      "snapshot_name": "tec-prod-{{user `build_number`}}",
+      "ssh_username": "core",
+      "tags": ["web-app"]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "docker pull {{user `build_number`}}",
+        "docker run -d -p 3000:3000 {{user `build_number`}}"
+      ]
+    }
+  ]
+}
