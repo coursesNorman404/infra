@@ -9,6 +9,12 @@ resource "digitalocean_droplet" "tecWeb" {
   size    = "512mb"
   ssh_keys = [25897763]
   user_data = "${file("user-data.web")}"
+  lifecycle {
+    create_before_destroy = true
+  }
+  provisioner "local-exec" {
+    command = "sleep 160 && curl ${self.ipv4_address}:300/ "
+  }
   tags = ["${digitalocean_tag.tecWeb.id}"]
 }
 resource "digitalocean_loadbalancer" "tecWeb" {

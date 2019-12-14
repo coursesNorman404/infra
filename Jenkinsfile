@@ -9,8 +9,8 @@ pipeline {
   stages {
     stage('Build Packer') {
       steps {
-        sh 'chmod +x ./bash/prod.sh'
-        sh './bash/prod.sh'
+        sh 'chmod +x ./bash/build.sh'
+        sh './bash/build.sh'
       }
     }
     stage('Build Terraform') {

@@ -19,6 +19,7 @@
     {
       "type": "shell",
       "inline": [
+        "export ARTIFACT_ID = {{user `build_number`}}",
         "docker pull {{user `build_number`}}",
         "docker run -d -p 3000:3000 {{user `build_number`}}"
       ]
