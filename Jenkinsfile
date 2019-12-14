@@ -13,9 +13,10 @@ pipeline {
         sh './bash/build.sh'
       }
     }
-    stage('Build Terraform') {
+    stage('Run Terraform') {
       steps {
-        sh 'echo $DIGITALOCEAN_TOKEN'
+         sh 'chmod +x ./bash/terraform.sh'
+        sh './bash/terraform.sh'
       }
     }
   }
