@@ -2,8 +2,8 @@ resource "digitalocean_tag" "tecWeb" {
   name = "tecWeb"
 }
 resource "digitalocean_droplet" "tecWeb" {
-  count   = 3
-  image   = "56010150"
+  count   = 2
+  image   = "${var.image_id}"
   name    = "tecWeb"
   region  = "SFO2"
   size    = "512mb"
