@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Build Terraform') {
       steps {
-        sh 'Hecho $DIGITALOCEAN_TOKEN'
+        sh 'echo $DIGITALOCEAN_TOKEN'
       }
     }
   }
